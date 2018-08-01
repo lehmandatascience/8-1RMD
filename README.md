@@ -198,20 +198,23 @@ g1 + scale_x_continuous(breaks=c(1997, 1999, 2001, 2003, 2005, 2007, 2009, 2011,
 
 
 ```
+Total for all years 1997-2016 (same as above just in position= "dodge")
+```{r}
 
+p <- ggplot(data=long_sub) + geom_col(mapping = aes(year, value, fill = type),  position = "dodge") 
+p + scale_x_continuous(breaks=c(1997, 1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2016)) +  scale_y_continuous( labels = comma)
 
+```
 Graph for Total compared to Family total compared to Employment total
 ```{r}
 long_sub2 <- filter(long,  
       long$`Type and class of admission` %in% c("Total", "Family-sponsored preferences" ,"Employment-based preferences" ), long$type %in% "Total")
 ```
-
-
+CUTS WHEN TRYING TO GET THE GRAPH TO WORK
 ```{r}
-
-
 levels(long$`Type and class of admission`) <- c("Total", "Family-sponsored preferences", "Employment-based preferences")
 
 ggplot(long_sub2, aes(year, value, fill="Type and class of admission")) +
   geom_bar(stat = "identity")
+```
 
