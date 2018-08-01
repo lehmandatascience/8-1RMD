@@ -188,6 +188,7 @@ long_sub <- filter(long,
 ```
  
 Created a test plot for only the 'Total' row for all years from 1997 to 2016.
+***this graph is a stacked graph
 
 ```{r}
 g1 <- ggplot(long_sub, aes(year, value, fill = type))+
@@ -198,7 +199,9 @@ g1 + scale_x_continuous(breaks=c(1997, 1999, 2001, 2003, 2005, 2007, 2009, 2011,
 
 
 ```
-Total for all years 1997-2016 (same as above just in position= "dodge")
+Total for all years 1997-2016 (same as above just in position= "dodge") 
+*** dodge means the bars are side by side
+
 ```{r}
 
 p <- ggplot(data=long_sub) + geom_col(mapping = aes(year, value, fill = type),  position = "dodge") 
