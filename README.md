@@ -220,4 +220,22 @@ levels(long$`Type and class of admission`) <- c("Total", "Family-sponsored prefe
 ggplot(long_sub2, aes(year, value, fill="Type and class of admission")) +
   geom_bar(stat = "identity")
 ```
+Dr. Elin's Graph of the First subcategory under employment: 
+**First she had to filter from the "long" dataset to create a dataset with the variable she is interested in which is "First: Priority workers"
+```{r}
 
+long_sub <- filter(long,  
+      long$`Type and class of admission` %in% c("Total" ) & long$type != "Total")
+long_priority1 <- filter(long,  
+      long$`Type and class of admission` %in% c("First: Priority workers"  
+                                                ) & long$type != "Total")
+```
+Created a test plot for only the 'Priority 1' data for all years from 1997 to 2016.
+```{r}
+g2 <- ggplot(long_priority1, aes(x = year, y = value, fill = type )) +
+  geom_col() +
+  theme(legend.position="bottom")
+
+g2
+
+```
