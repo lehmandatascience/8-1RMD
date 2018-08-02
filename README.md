@@ -232,10 +232,10 @@ long_priority1 <- filter(long,
 ```
 Created a test plot for only the 'Priority 1' data for all years from 1997 to 2016.
 ```{r}
-g2 <- ggplot(long_priority1, aes(x = year, y = value, fill = type )) +
+g3 <- ggplot(long_priority1, aes(x = year, y = value, fill = type )) +
   geom_col() +
   theme(legend.position="bottom")
 
-g2
+g3
 
 ```
